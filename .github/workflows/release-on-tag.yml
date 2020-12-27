@@ -16,7 +16,7 @@ jobs:
       - name: Build project
         run: cargo build --release
       - name: pack project
-        run: tar -caf binary-release_Linux_${{ github.ref }}.tar.xz -C target/release binary-release
+        run: tar -caf binary-release_Linux_${{ github.event.release.tag_name }}.tar.xz -C target/release binary-release
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
